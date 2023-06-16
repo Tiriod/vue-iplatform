@@ -2,7 +2,6 @@
 <template>
     <!--  标题头内容  -->
     <el-header style="padding: 0">
-
         <el-menu :default-active="activeIndex"
                  class="el-menu-demo"
                  mode="horizontal"
@@ -18,8 +17,7 @@
             <el-sub-menu index="2">
                 <template #title style="width: 120px;margin: 0 2px">功 能 模 块</template>
                 <el-menu-item index="2-1">
-                    <router-link to="/Classification"
-                                 style="text-decoration: none; color: #3D3D3D;padding: initial">
+                    <router-link to="/Classification" style="text-decoration: none; color: #3D3D3D;padding: initial">
                         图 像 分 类
                     </router-link>
                 </el-menu-item>

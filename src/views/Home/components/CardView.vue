@@ -26,26 +26,13 @@
                 </el-card>
             </div>
         </el-card>
-        <!--Hugging Face卡片-->
-        <el-card class="card-item" header="🤗Hugging Face | AI 模 型 开 源 社 区">
-            <div style="display:flex;">
-                <el-link href="https://huggingface.co/chat/">
-                    <el-image style="width: 200px;height: 200px;" :src="huggingchat_image_path"></el-image>
-                </el-link>
-                <el-card style="margin: 0 15px;background-color: #EFEFEF;">
-                    <el-text class="mx-4">
-                        Hugging Face Hub,允许用户共享和发现预训练模型,数据集和其他资源.它作为NLP社区的协作空间,促进了思想交流,使研究人员和开发人员能够利用集体的知识和专业知识.
-                    </el-text>
-                </el-card>
-            </div>
-        </el-card>
     </div>
-    <div style="padding: 5px"></div>
+    <div style="padding: 5px"/>
     <div class="card-container">
         <!--Roboflow卡片-->
         <el-card class="card-item" header="🌈Roboflow">
             <div style="display:flex;">
-                <el-link href="https://huggingface.co/chat/">
+                <el-link href="https://roboflow.com/">
                     <el-image style="width: 200px;height: 200px;" :src="roboflow_image_path"></el-image>
                 </el-link>
                 <el-card style="margin: 0 15px;background-color: #EFEFEF;">
@@ -56,25 +43,15 @@
                 </el-card>
             </div>
         </el-card>
-        <!--Github -->
-        <el-card class="card-item" header="😋一个 Vue 3 UI 框架 | Element Plus">
+        <!--Hugging Face卡片-->
+        <el-card class="card-item" header="🤗Hugging Face | AI 模 型 开 源 社 区">
             <div style="display:flex;">
                 <el-link href="https://huggingface.co/chat/">
                     <el-image style="width: 200px;height: 200px;" :src="huggingchat_image_path"></el-image>
                 </el-link>
                 <el-card style="margin: 0 15px;background-color: #EFEFEF;">
                     <el-text class="mx-4">
-                    </el-text>
-                </el-card>
-            </div>
-        </el-card>
-        <el-card class="card-item" header="Card 3">
-            <div style="display:flex;">
-                <el-link href="https://huggingface.co/chat/">
-                    <el-image style="width: 200px;height: 200px;" :src="huggingchat_image_path"></el-image>
-                </el-link>
-                <el-card style="margin: 0 15px;background-color: #EFEFEF;">
-                    <el-text class="mx-4">
+                        Hugging Face Hub,允许用户共享和发现预训练模型,数据集和其他资源.它作为NLP社区的协作空间,促进了思想交流,使研究人员和开发人员能够利用集体的知识和专业知识.
                     </el-text>
                 </el-card>
             </div>

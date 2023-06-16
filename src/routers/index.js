@@ -1,6 +1,10 @@
 import {createRouter, createWebHistory} from "vue-router";
 import Login from "@/views/Login/Login.vue";
 import Home from "@/views/Home/Home.vue";
+import Classification from "@/views/Functional-module/Classification/Classification.vue";
+import Detection from "@/views/Functional-module/Detedtion/Detection.vue";
+import Semantics from "@/views/Functional-module/Semantics/Semantics.vue";
+import About from "@/views/About/About.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,6 +27,36 @@ const router = createRouter({
             name: Login,
             component: Login
         },
+        {
+            // 配置Classification图像分类页面
+            path: '/Classification',
+            name: Classification,
+            component: Classification
+        },
+        {
+            // 配置Detection目标检测页面
+            path: '/Detection',
+            name: Detection,
+            component: Detection
+        },
+        {
+            // 配置Semantics语义分割页面
+            path: '/Semantics',
+            name: Semantics,
+            component: Semantics
+        },
+        {
+            // 配置About页面
+            path: '/About',
+            name: About,
+            component: About
+        },
+        {
+            // 配置About页面
+            path: '/About',
+            name: About,
+            component: About
+        }
     ]
 })
 

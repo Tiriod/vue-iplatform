@@ -1,11 +1,10 @@
 <template>
+    <h1>Semantics</h1>
 </template>
 
 <script>
-
-
 export default {
-    name: "Classification",
+    name: "Semantics"
 }
 </script>
 

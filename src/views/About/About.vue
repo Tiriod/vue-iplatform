@@ -1,14 +1,13 @@
 <template>
-    <card-view style="margin: 5px"/>
+<CardView/>
 </template>
 
 <script>
-
 import CardView from "@/views/Home/components/CardView.vue";
 
 export default {
-    name: "Home",
-    components: {CardView},
+    name: "About",
+    components: {CardView}
 }
 </script>
 

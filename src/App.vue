@@ -1,7 +1,7 @@
 <!--一级路由出口组件-->
 <template>
     <!--  标题头内容  -->
-    <el-header style="padding: 0">
+    <el-header style="padding: 0;offset: 0">
         <el-menu :default-active="activeIndex"
                  class="el-menu-demo"
                  mode="horizontal"

@@ -1,5 +1,5 @@
 <template>
-    <el-table :data="tableData" style="width: 100%; height: 300px;border-radius: 10px;padding: 10px">
+    <el-table :data="tableData" style="width: 100%; height: 300px;border-radius: 10px;padding: 5px">
         <el-table-column fixed prop="serial_number" label="序号" width="40"/>
         <el-table-column prop="name" label="检测结果" width="100" />
         <el-table-column prop="confidence" label="置信度" width="100" />

@@ -1,5 +1,5 @@
 <template>
-    <el-card style="background-color: RGBA(60,171,134,0.5); margin: 10px">
+    <el-card style="background-color: RGBA(60,171,134,0.5);margin: 10px">
         <div>
             <el-text style="color: #f8f8f8;margin: 5px;padding: 20px;font-size: x-large">图像分类模型介绍:
             </el-text>

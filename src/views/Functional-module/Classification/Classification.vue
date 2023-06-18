@@ -3,7 +3,7 @@
         <el-row>
             <!--图像输入栏-->
             <el-col :span="16" style="text-align: center">
-                <ClassificationImageInputView></ClassificationImageInputView>
+                <ClassificationImageInputView/>
             </el-col>
             <!--结果输出栏-->
             <el-col :span="8" style="text-align: center">

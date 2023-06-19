@@ -4,7 +4,7 @@ import {CancelToken} from "axios";
 const cancelToken = axios.CancelToken.source();
 const httpInstance = axios.create({
     baseURL: "http://127.0.0.1:8000",
-    timeout: 5000,
+    timeout: 15000,
     cancelToken: cancelToken.token
 })
 

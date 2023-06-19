@@ -33,17 +33,19 @@
                             </el-text>
                         </div>
                         <div>
-                            <el-text style="color: #f8f8f8;margin: 5px;padding: 20px">本模型
+                            <el-text style="color: #f8f8f8;margin: 5px;padding: 20px">本模型是 VGG-16 的ImageNet模型
                             </el-text>
                         </div>
                     </el-card>
                     <div style="height: 20px"></div>
                     <!--模型展示卡片-->
-                    <el-table :data="tableData" style="width: 100%; height: 300px;border-radius: 10px;padding: 5px">
-                        <el-table-column fixed prop="serial_number" label="序号" width="100"/>
-                        <el-table-column prop="name" label="检测结果" width="200"/>
-                        <el-table-column prop="confidence" label="置信度" width="200"/>
+                    <el-table :data="classification_result"
+                              style="width: 100%; height: 450px; border-radius: 10px; padding: 5px">
+                        <el-table-column fixed prop="id" label="序号" width="80"/>
+                        <el-table-column prop="name" label="检测结果" width="240"/>
+                        <el-table-column prop="confidence" label="置信度" width="100"/>
                     </el-table>
+
                 </el-card>
             </el-col>
         </el-row>
@@ -60,18 +62,21 @@ export default {
         const image = ref("public/resources/image/Lotus.png");
         const uploadURL = "http://127.0.0.1:8000/api/classification";
         const container_image_path = "src/resources/image/Wild Lotus.jpeg";
-        const image_id = ''
+        const image_id = ref('')
+        const image_data = ref('')
         // 创建一个取消令牌实例
         const cancelToken = axios.CancelToken.source();
-
+        let classification_result = ref([{"id": 0, "name": "等待数据传输", "confidence": "等待数据传输"}])
 
         function handleSuccess(response) {
+
             const image_id = response.image_id
-            console.log(response)
+            const image_data = response.image_data
+            console.log(response.result)
             modelClassification(image_id)
                     .then(result => {
-                        console.log(result);
-                        // 在这里处理返回的结果
+                        classification_result.value = result["result"]
+                        console.log(classification_result);
                     })
                     .catch(error => {
                         console.log(error);
@@ -80,12 +85,10 @@ export default {
         }
 
         function beforeUpload(file) {
-            console.log("上传数据:", file);
+            classification_result.value = [{"id": "模型加载中", "name": "模型加载中", "confidence": "模型加载中"}]
         }
 
         function modelClassification(imageId) {
-            console.log("开始进行模型调用");
-            console.log(imageId);
             return httpInstance({
                 url: `model/classification/${imageId}/`,
                 method: "POST",
@@ -93,7 +96,16 @@ export default {
             })
         }
 
-        return {image, uploadURL, handleSuccess, beforeUpload, container_image_path, image_id, cancelToken};
+        return {
+            image,
+            uploadURL,
+            handleSuccess,
+            beforeUpload,
+            container_image_path,
+            image_id,
+            cancelToken,
+            classification_result
+        };
     }
 }
 </script>

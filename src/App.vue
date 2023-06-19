@@ -52,7 +52,7 @@ import {ref} from 'vue'
 export default {
     setup() {
         const activeIndex = ref('1')
-        const title_image_path = "src/resources/image/Title.png"
+        const title_image_path = "public/resources/image/Title.png"
         const handleSelect = (key: string, keyPath: string[]) => {
             console.log(key, keyPath)
         }

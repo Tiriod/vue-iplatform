@@ -1,5 +1,4 @@
 import {createRouter, createWebHistory} from "vue-router";
-import Login from "@/views/Login/Login.vue";
 import Home from "@/views/Home/Home.vue";
 import Classification from "@/views/Functional-module/Classification/Classification.vue";
 import Detection from "@/views/Functional-module/Detedtion/Detection.vue";
@@ -20,12 +19,6 @@ const router = createRouter({
             path: '/Home',
             name: Home,
             component: Home
-        },
-        {
-            // 配置Login页面
-            path: '/Login',
-            name: Login,
-            component: Login
         },
         {
             // 配置Classification图像分类页面

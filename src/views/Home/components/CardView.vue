@@ -64,10 +64,10 @@ export default {
     // 组件逻辑
     name: "cardView",
     setup() {
-        const chatgpt_image_path = "src/resources/image/ChatGPT.png"
-        const cutout_image_path = "src/resources/image/Cutout.png"
-        const huggingchat_image_path = "src/resources/image/Hugging face.png"
-        const roboflow_image_path = "src/resources/image/Roboflow.svg"
+        const chatgpt_image_path = "public/resources/image/ChatGPT.png"
+        const cutout_image_path = "public/resources/image/Cutout.png"
+        const huggingchat_image_path = "public/resources/image/Hugging face.png"
+        const roboflow_image_path = "public/resources/image/Roboflow.svg"
         return {
             chatgpt_image_path,
             cutout_image_path,

@@ -7,7 +7,7 @@
                     <el-image
                             :src="image"
                             fit="contain"
-                            style="padding: 5%;width: 80%"
+                            style="padding: 5%;width: 480px; height: 480px"
                     ></el-image>
                 </el-card>
                 <el-upload
@@ -59,20 +59,28 @@ import httpInstance from "@/utils/httpUtil";
 export default {
     name: "Classification",
     setup() {
+        // 默认显示图像路径
         const image = ref("public/resources/image/Lotus.png");
         const uploadURL = "http://127.0.0.1:8000/api/classification";
-        const container_image_path = "src/resources/image/Wild Lotus.jpeg";
+        // 上传的image图像的id属性
         const image_id = ref('')
+        // 上传的image图像Base64编码
         const image_data = ref('')
         // 创建一个取消令牌实例
         const cancelToken = axios.CancelToken.source();
         let classification_result = ref([{"id": 0, "name": "等待数据传输", "confidence": "等待数据传输"}])
+        let decodeData = ref('');
+        // 默认图像转码地址
+        let imageURL = ref('');
 
+        // 使用handle传参成功返回函数
         function handleSuccess(response) {
 
             const image_id = response.image_id
-            const image_data = response.image_data
-            console.log(response.result)
+            image_data.value = response.image_data
+            image.value = convertToImageURL(parseBase64(response.image_data));
+            console.log(image_data.value)
+
             modelClassification(image_id)
                     .then(result => {
                         classification_result.value = result["result"]
@@ -84,10 +92,13 @@ export default {
                     });
         }
 
+        // Upload执行前函数
         function beforeUpload(file) {
+            // 将现在的数据表显示内容动态加载为 ”模型加载中“
             classification_result.value = [{"id": "模型加载中", "name": "模型加载中", "confidence": "模型加载中"}]
         }
 
+        // 使用模型进行图像分类方法
         function modelClassification(imageId) {
             return httpInstance({
                 url: `model/classification/${imageId}/`,
@@ -96,25 +107,34 @@ export default {
             })
         }
 
+        // 将Base64编码转码为Byte类型
+        function parseBase64(base64String) {
+            const binaryString = atob(base64String);
+            const bytes = new Uint8Array(binaryString.length);
+            for (let i = 0; i < binaryString.length; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return new Blob([bytes], {type: 'image/png'}); // 根据实际数据类型调整参数
+        }
+
+        function convertToImageURL(blob) {
+            return URL.createObjectURL(blob);
+        }
+
+
         return {
             image,
+            image_id,
             uploadURL,
             handleSuccess,
             beforeUpload,
-            container_image_path,
-            image_id,
             cancelToken,
-            classification_result
+            classification_result,
+            decodeData,
+            imageURL,
         };
     }
 }
 </script>
 <style scoped>
-.background-image {
-    /* 背景图片相关样式 */
-    background-size: cover;
-    background-position: center;
-    /* 其他样式 */
-}
-
 </style>
